@@ -1,0 +1,114 @@
+
+/* travel-guide.esimart modern UI v2 */
+:root {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --card: #1e293b;
+  --accent: #38bdf8;
+  --accent2: #818cf8;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --white: #f8fafc;
+  --radius: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(15,23,42,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 1rem 2rem;
+  display: flex; align-items: center; gap: 2rem;
+}
+nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+nav a:hover { color: var(--accent); }
+nav .brand { font-weight: 700; font-size: 1.1rem; color: var(--white); }
+.hero { padding: 4rem 2rem 2rem; max-width: 1100px; margin: 0 auto; }
+h1 { font-size: clamp(2rem,5vw,3.5rem); font-weight: 800; line-height: 1.15; color: var(--white); margin-bottom: 1rem; }
+p { color: var(--muted); max-width: 640px; margin-bottom: 1.5rem; }
+h2 { color: var(--white); font-size: 1.4rem; font-weight: 700; margin: 2.5rem 0 1rem; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 2rem; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 0 2rem;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+}
+.grid a {
+  display: block;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.5rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+.grid a:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: rgba(56,189,248,0.08);
+}
+ul, ol { padding-left: 1.5rem; color: var(--muted); margin: 0 2rem 1.5rem; max-width: 1100px; }
+li { margin-bottom: 0.5rem; }
+details {
+  background: var(--card);
+  border-radius: var(--radius);
+  margin: 0 2rem 0.5rem;
+  max-width: 1100px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+details summary { padding: 1rem 1.2rem; cursor: pointer; font-weight: 600; color: var(--text); }
+details[open] summary { border-bottom: 1px solid rgba(255,255,255,0.1); }
+details p { padding: 1rem 1.2rem; color: var(--muted); font-size: 0.9rem; }
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn:hover { transform: scale(1.05); box-shadow: 0 8px 24px rgba(56,189,248,0.3); }
+article { max-width: 720px; margin: 0 auto; padding: 2rem; }
+article h1 { font-size: 2rem; margin-bottom: 1rem; }
+article h2 { font-size: 1.3rem; margin-top: 2rem; padding: 0; }
+article figure { margin: 1.5rem 0; border-radius: var(--radius); overflow: hidden; }
+article img { width: 100%; display: block; }
+article figcaption { font-size: 0.8rem; color: var(--muted); padding: 0.5rem; }
+footer {
+  background: var(--surface);
+  margin-top: 4rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.esim-cta {
+  background: rgba(56,189,248,0.08);
+  border: 1px solid rgba(56,189,248,0.3);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+.esim-cta h2 { margin-top: 0; color: var(--accent); }
+.srcline { font-size: 0.75rem; color: var(--muted); }
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .hero { padding: 2rem 1rem; }
+  h2, ul, ol, details { margin-left: 0; margin-right: 0; padding-left: 1rem; }
+}
