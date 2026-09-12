@@ -1,1 +1,6 @@
-User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api\nSitemap: https://travel-guide.esimart.cc/sitemap.xml\n
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+Sitemap: https://chiag455371.github.io/travel-guide.esimart/sitemap.xml
