@@ -204,7 +204,9 @@ def main():
     from extra_templates_4 import EXTRA_TEMPLATES_4
     from extra_templates_5 import EXTRA_TEMPLATES_5
     from extra_templates_6 import EXTRA_TEMPLATES_6
-from extra_templates_7 import EXTRA_TEMPLATES_7
+from extra_templates_7 import EXTRA_TEMPLATES_7 + EXTRA_TEMPLATES_8 + EXTRA_TEMPLATES_9
+from extra_templates_8 import EXTRA_TEMPLATES_8 + EXTRA_TEMPLATES_9
+from extra_templates_9 import EXTRA_TEMPLATES_9
 
 
     BASE_TEMPLATES = [
@@ -216,7 +218,7 @@ from extra_templates_7 import EXTRA_TEMPLATES_7
         {"slug": "oce-sydney-opera", "region": "oce", "title": "雪梨歌劇院全攻略", "desc": "雪梨歌劇院是世界著名建築。", "h2s": [("導覽資訊", "官方導覽約120分鐘。"), ("周邊景點", "皇家植物園和海港大橋相鄰。")], "tags": ["雪梨", "歌劇院"]},
     ]
 
-    all_templates = BASE_TEMPLATES + EXTRA_1 + EXTRA_TEMPLATES_2 + EXTRA_TEMPLATES_3 + EXTRA_TEMPLATES_4 + EXTRA_TEMPLATES_5 + EXTRA_TEMPLATES_6 + EXTRA_TEMPLATES_7
+    all_templates = BASE_TEMPLATES + EXTRA_1 + EXTRA_TEMPLATES_2 + EXTRA_TEMPLATES_3 + EXTRA_TEMPLATES_4 + EXTRA_TEMPLATES_5 + EXTRA_TEMPLATES_6 + EXTRA_TEMPLATES_7 + EXTRA_TEMPLATES_8 + EXTRA_TEMPLATES_9
     print(f"  Total templates: {len(all_templates)}")
 
     # Get existing slugs
