@@ -198,18 +198,14 @@ def main():
     from extra_templates import EXTRA_TEMPLATES as EXTRA_1
     from extra_templates_2 import EXTRA_TEMPLATES_2
     from extra_templates_3 import EXTRA_TEMPLATES_3
-    from extra_templates import EXTRA_TEMPLATES as EXTRA_1
-    from extra_templates_2 import EXTRA_TEMPLATES_2
-    from extra_templates_3 import EXTRA_TEMPLATES_3
     from extra_templates_4 import EXTRA_TEMPLATES_4
     from extra_templates_5 import EXTRA_TEMPLATES_5
     from extra_templates_6 import EXTRA_TEMPLATES_6
-from extra_templates_7 import EXTRA_TEMPLATES_7 + EXTRA_TEMPLATES_8 + EXTRA_TEMPLATES_9
-from extra_templates_8 import EXTRA_TEMPLATES_8 + EXTRA_TEMPLATES_9
-from extra_templates_9 import EXTRA_TEMPLATES_9
+    from extra_templates_7 import EXTRA_TEMPLATES_7
+    from extra_templates_8 import EXTRA_TEMPLATES_8
+    from extra_templates_9 import EXTRA_TEMPLATES_9
 
-
-    BASE_TEMPLATES = [
+BASE_TEMPLATES = [
         {"slug": "jp-hiroshima-peace", "region": "jp", "title": "廣島和平紀念公園全攻略", "desc": "廣島是日本重要的和平教育基地。", "h2s": [("最佳參觀時間", "建議上午9點前抵達。"), ("必訪景點", "原爆圓頂館是1945年原子彈爆炸後殘留的建築。")], "tags": ["廣島", "和平紀念"]},
         {"slug": "jp-okinawa-beach", "region": "jp", "title": "沖繩海灘天堂全攻略", "desc": "沖繩是日本最著名的度假勝地。", "h2s": [("美之海水族館", "日本最大的水族館之一。"), ("萬座毛", "沖繩最著名的海岸景觀。")], "tags": ["沖繩", "海灘"]},
         {"slug": "kr-seoul-tower", "region": "kr", "title": "首爾N塔全攻略", "desc": "南山N塔是首爾的地標。", "h2s": [("觀景台", "118公尺高的觀景台。"), ("告白鎖", "情侶必訪的浪漫景點。")], "tags": ["首爾", "N塔"]},

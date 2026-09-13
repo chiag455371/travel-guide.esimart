@@ -5,10 +5,7 @@ from extra_templates import EXTRA_TEMPLATES as EXTRA_TEMPLATES_SRC
 from extra_templates_2 import EXTRA_TEMPLATES_2
 from extra_templates_3 import EXTRA_TEMPLATES_3
 from extra_templates_4 import EXTRA_TEMPLATES_4
-from extra_templates_5 import EXTRA_TEMPLATES_5 + EXTRA_TEMPLATES_6 + EXTRA_TEMPLATES_7 + EXTRA_TEMPLATES_8 + EXTRA_TEMPLATES_9
 from extra_templates_6 import EXTRA_TEMPLATES_6
-from extra_templates_7 import EXTRA_TEMPLATES_7 + EXTRA_TEMPLATES_8 + EXTRA_TEMPLATES_9
-from extra_templates_8 import EXTRA_TEMPLATES_8 + EXTRA_TEMPLATES_9
 from extra_templates_9 import EXTRA_TEMPLATES_9
 
 BASE = r"C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo"
