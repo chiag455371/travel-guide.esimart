@@ -25,8 +25,9 @@ for idx in ["index.html", "articles/index.html"]:
         for m in re.finditer(r'(?:src|content)="(https://loremflickr\.com/[^"]+)"', c):
             all_urls.add(m.group(1))
 
-print(f"Total unique image URLs: {len(all_urls)}")
+print(f"=== FINAL IMAGE VERIFICATION ===")
 print(f"Total HTML files: {len(all_files) + 2}")
+print(f"Total unique image URLs: {len(all_urls)}")
 
 errors = 0
 for url in sorted(all_urls):
@@ -42,8 +43,8 @@ for url in sorted(all_urls):
 
 print(f"\nResult: {'ALL IMAGES OK - No broken images!' if errors == 0 else f'{errors} BROKEN IMAGES FOUND'}")
 
-# Also check for any remaining broken patterns
-print("\n=== Checking for broken patterns ===")
+# Check for broken patterns
+print("\n=== BROKEN PATTERN CHECK ===")
 broken_patterns = []
 for root, dirs, files in os.walk(BASE):
     dirs[:] = [d for d in dirs if d not in (".git", "node_modules")]
@@ -58,10 +59,21 @@ for root, dirs, files in os.walk(BASE):
             broken_patterns.append((fn, "double-https"))
         if "loremflickr.com/600x400" in c or "loremflickr.com/1200x630" in c:
             broken_patterns.append((fn, "wrong-format"))
+        if "tw-yilan-hot spring" in c:
+            broken_patterns.append((fn, "space-in-slug"))
 
 if broken_patterns:
     print(f"Broken patterns found: {len(broken_patterns)}")
-    for fn, pat in broken_patterns[:5]:
+    for fn, pat in broken_patterns[:10]:
         print(f"  {fn}: {pat}")
 else:
     print("No broken patterns found!")
+
+# Count templates
+with open(BASE + r"\daily_articles.py", "r", encoding="utf-8") as f:
+    dc = f.read()
+template_slugs = re.findall(r'"slug":\s*"([^"]+)"', dc)
+print(f"\n=== DAILY ARTICLES GENERATOR ===")
+print(f"Total templates: {len(template_slugs)}")
+print(f"Unique slugs: {len(set(template_slugs))}")
+print(f"Duplicates: {len(template_slugs) - len(set(template_slugs))}")
