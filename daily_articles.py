@@ -4,6 +4,7 @@ import os, random, datetime
 from extra_templates import EXTRA_TEMPLATES as EXTRA_TEMPLATES_SRC
 from extra_templates_2 import EXTRA_TEMPLATES_2
 from extra_templates_3 import EXTRA_TEMPLATES_3
+from extra_templates_4 import EXTRA_TEMPLATES_4
 
 BASE = r"C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo"
 ARTICLES = BASE + r"\articles"
@@ -162,7 +163,7 @@ def main():
         if fn.endswith(".html") and fn != "index.html":
             existing.add(fn.replace(".html", ""))
 
-    all_templates = TEMPLATES + EXTRA_TEMPLATES_SRC + EXTRA_TEMPLATES_2 + EXTRA_TEMPLATES_3
+    all_templates = TEMPLATES + EXTRA_TEMPLATES_SRC + EXTRA_TEMPLATES_2 + EXTRA_TEMPLATES_3 + EXTRA_TEMPLATES_4
     available = [t for t in all_templates if t["slug"] not in existing]
     to_generate = random.sample(available, min(20, len(available)))
 

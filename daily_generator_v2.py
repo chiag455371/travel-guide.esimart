@@ -198,6 +198,7 @@ def main():
     from extra_templates import EXTRA_TEMPLATES as EXTRA_1
     from extra_templates_2 import EXTRA_TEMPLATES_2
     from extra_templates_3 import EXTRA_TEMPLATES_3
+    from extra_templates_4 import EXTRA_TEMPLATES_4
 
     BASE_TEMPLATES = [
         {"slug": "jp-hiroshima-peace", "region": "jp", "title": "廣島和平紀念公園全攻略", "desc": "廣島是日本重要的和平教育基地。", "h2s": [("最佳參觀時間", "建議上午9點前抵達。"), ("必訪景點", "原爆圓頂館是1945年原子彈爆炸後殘留的建築。")], "tags": ["廣島", "和平紀念"]},
@@ -208,7 +209,7 @@ def main():
         {"slug": "oce-sydney-opera", "region": "oce", "title": "雪梨歌劇院全攻略", "desc": "雪梨歌劇院是世界著名建築。", "h2s": [("導覽資訊", "官方導覽約120分鐘。"), ("周邊景點", "皇家植物園和海港大橋相鄰。")], "tags": ["雪梨", "歌劇院"]},
     ]
 
-    all_templates = BASE_TEMPLATES + EXTRA_1 + EXTRA_TEMPLATES_2 + EXTRA_TEMPLATES_3
+    all_templates = BASE_TEMPLATES + EXTRA_1 + EXTRA_TEMPLATES_2 + EXTRA_TEMPLATES_3 + EXTRA_TEMPLATES_4
     print(f"  Total templates: {len(all_templates)}")
 
     # Get existing slugs
