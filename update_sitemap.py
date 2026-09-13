@@ -1,14 +1,37 @@
+# -*- coding: utf-8 -*-
 import os, datetime
-base = 'https://chiag455371.github.io/travel-guide.esimart'
-today = datetime.date.today().isoformat()
+
+BASE = r"C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo"
+ARTICLES = BASE + r"\articles"
+TODAY = datetime.date.today().isoformat()
+
 urls = []
-urls.append('<url><loc>' + base + '/</loc><priority>1.0</priority><lastmod>' + today + '</lastmod></url>')
-for f in sorted(os.listdir('articles')):
-    if f.endswith('.html') and f != 'index.html':
-        slug = f.replace('.html','')
-        urls.append('<url><loc>' + base + '/articles/' + slug + '.html</loc><priority>0.8</priority><lastmod>' + today + '</lastmod></url>')
-urls.append('<url><loc>' + base + '/articles/</loc><priority>0.9</priority><lastmod>' + today + '</lastmod></url>')
-xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(urls) + '\n</urlset>'
-with open('sitemap.xml', 'w', encoding='utf-8') as fp:
-    fp.write(xml)
-print('Written', len(urls), 'URLs')
+urls.append(("https://chiag455371.github.io/travel-guide.esimart/", TODAY, "daily", "1.0"))
+urls.append(("https://chiag455371.github.io/travel-guide.esimart/articles/", TODAY, "daily", "0.9"))
+for region in ["jp", "kr", "tw", "eu", "oce"]:
+    urls.append((f"https://chiag455371.github.io/travel-guide.esimart/articles/{region}.html", TODAY, "weekly", "0.8"))
+
+for fn in sorted(os.listdir(ARTICLES)):
+    if fn.endswith(".html") and fn != "index.html":
+        slug = fn.replace(".html", "")
+        if slug.startswith("jp"): p, cf = "0.7", "weekly"
+        elif slug.startswith("kr"): p, cf = "0.7", "weekly"
+        elif slug.startswith("tw"): p, cf = "0.7", "weekly"
+        elif slug.startswith("eu"): p, cf = "0.6", "weekly"
+        elif slug.startswith("oce"): p, cf = "0.6", "weekly"
+        else: p, cf = "0.5", "weekly"
+        urls.append((f"https://chiag455371.github.io/travel-guide.esimart/articles/{slug}.html", TODAY, cf, p))
+
+xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+for loc, date, freq, prio in urls:
+    xml_lines.append(f"  <url>")
+    xml_lines.append(f"    <loc>{loc}</loc>")
+    xml_lines.append(f"    <lastmod>{date}</lastmod>")
+    xml_lines.append(f"    <changefreq>{freq}</changefreq>")
+    xml_lines.append(f"    <priority>{prio}</priority>")
+    xml_lines.append("  </url>")
+xml_lines.append("</urlset>")
+
+with open(BASE + r"\sitemap.xml", "w", encoding="utf-8") as f:
+    f.write("\n".join(xml_lines))
+print(f"Sitemap generated: {len(urls)} URLs")
