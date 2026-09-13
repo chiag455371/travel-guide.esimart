@@ -61,6 +61,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/eu-athens-acropolis.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/eu-barcelona-gaudi.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -85,6 +91,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/eu-bern-oldtown.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/eu-bruges.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/eu-holland-tulip.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -98,6 +116,12 @@
   </url>
   <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/eu-ireland.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/eu-lisbon.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -199,6 +223,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-awaji.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-fuji-hiking.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -218,6 +248,12 @@
   </url>
   <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-hakone-onsen.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-himeji.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -326,6 +362,12 @@
   </url>
   <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-nagoya-castle.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-naoshima.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -463,6 +505,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-tottori.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -488,6 +536,12 @@
   </url>
   <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/kr-bukchon.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/kr-busan-gwangan.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -613,7 +667,25 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/kr-seoul-namsan.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/kr-sokcho.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/kr-spring.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/kr-yeosu.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -625,7 +697,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/oce-adelaide.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/oce-auckland-rangitoto.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/oce-christchurch.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -655,7 +739,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/oce-queenstown-adventure.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/oce-queenstown.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/oce-roto.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -739,7 +835,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/tw-kiunghua.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/tw-lanyu.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/tw-luceat.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -752,6 +860,12 @@
   </url>
   <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/tw-masp.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/tw-matsu.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -788,6 +902,12 @@
   </url>
   <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/tw-pacific-coast.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/tw-penghu.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
