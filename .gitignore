@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.venv
+.venv/
+
+# Temporary scripts
+fix_*.py
+debug_*.py
+check_*.py
+update_import*.py
+extract_*.py
+add_templates.py
+final_verify.py
+slugs.txt
