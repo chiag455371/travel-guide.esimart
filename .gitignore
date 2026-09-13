@@ -17,3 +17,5 @@ final_verify.py
 slugs.txt
 test_images.py
 generate_region_pages.py
+daily_pipeline.py
+finalize.py
