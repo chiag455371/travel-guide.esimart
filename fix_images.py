@@ -1,83 +1,72 @@
 #!/usr/bin/env python3
-"""Fix all image URLs across the site - ensure valid loremflickr URLs."""
+"""Fix all broken image URLs in articles."""
 import os, re
 
-REPO = r'C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo'
-ARTICLES_DIR = os.path.join(REPO, 'articles')
+ARTICLES_DIR = r'C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo\articles'
 
 def fix_url(url):
-    """Ensure loremflickr URL has exactly one query string with + for spaces."""
-    if 'loremflickr' not in url:
-        return url
-    # Split on ? to find query parts
-    parts = url.split('?')
-    if len(parts) == 2:
-        base = parts[0]
-        query = parts[1]
-        # Ensure dimensions are appended properly
-        if 'w=' not in query or 'h=' not in query or 'fit=crop' not in query:
-            # Add proper dimensions
-            query = query.replace('&w=', '?w=')  # fix double ?
-            if not query.startswith('w='):
-                query = 'w=1200&h=600&fit=crop&' + query
-            elif '?' in query:
-                query = query.replace('?', '&')
-            url = base + '?' + query
-    # Replace spaces with +
-    url = url.replace(' ', '+')
-    # Fix double ? (multiple query strings)
+    """Clean up loremflickr URL."""
+    # Remove non-ASCII chars (Chinese, etc)
+    url = re.sub(r'[^\x00-\x7F]', '', url)
+    # Fix double ??
     while '??' in url:
         url = url.replace('??', '?')
-    # If there's a second ? after the first query, merge them
-    question_count = url.count('?')
-    if question_count > 1:
-        idx = url.index('?')
-        rest = url[idx+1:]
-        next_q = rest.find('?')
-        if next_q >= 0:
-            url = url[:idx+1] + rest[:next_q] + '&' + rest[next_q+1:]
+    # Fix multiple ? - keep only first
+    parts = url.split('?')
+    if len(parts) > 2:
+        url = parts[0] + '?' + '&'.join(parts[1:])
+    # Replace spaces with +
+    url = url.replace(' ', '+')
     return url
 
-def process_file(filepath):
-    """Fix image URLs in a file."""
-    with open(filepath, encoding='utf-8') as f:
-        content = f.read()
-    
-    original = content
-    
-    # Fix src="src=" pattern
-    content = content.replace('src="src="', 'src="')
-    
-    # Fix all loremflickr URLs
-    def fix_img(match):
-        full = match.group(0)
-        url = match.group(1)
-        fixed_url = fix_url(url)
-        return full.replace(url, fixed_url)
-    
-    content = re.sub(r'src="(https://loremflickr[^"]+)"', fix_img, content)
-    
-    # Fix og:image URLs too
-    content = re.sub(r'content="(https://loremflickr[^"]+)"', lambda m: m.group(0).replace(m.group(1), fix_url(m.group(1))), content)
-    
-    if content != original:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(content)
-        return True
-    return False
+files = [f for f in os.listdir(ARTICLES_DIR) if f.endswith('.html') and f != 'index.html']
+fixed_count = 0
 
-# Process all HTML files
-changed = []
-all_files = []
-for root, dirs, files in os.walk(ARTICLES_DIR):
-    for f in files:
-        if f.endswith('.html'):
-            all_files.append(os.path.join(root, f))
+for f in files:
+    path = os.path.join(ARTICLES_DIR, f)
+    content = open(path, encoding='utf-8').read()
+    orig = content
+    
+    # Fix src="..." URLs
+    content = re.sub(
+        r'src="(https://loremflickr[^"]+)"',
+        lambda m: 'src="' + fix_url(m.group(1)) + '"',
+        content
+    )
+    # Fix content="..." URLs (og:image, twitter:image, json ld)
+    content = re.sub(
+        r'content="(https://loremflickr[^"]+)"',
+        lambda m: 'content="' + fix_url(m.group(1)) + '"',
+        content
+    )
+    
+    if content != orig:
+        with open(path, 'w', encoding='utf-8') as fp:
+            fp.write(content)
+        fixed_count += 1
 
-for filepath in all_files:
-    if process_file(filepath):
-        changed.append(filepath)
+print(f'Fixed {fixed_count}/{len(files)} article files')
 
-print(f'Processed {len(all_files)} files, changed {len(changed)}:')
-for c in changed:
-    print(f'  {os.path.basename(c)}')
+# Collect all unique URLs and count
+all_urls = set()
+for f in files:
+    content = open(os.path.join(ARTICLES_DIR, f), encoding='utf-8').read()
+    for m in re.finditer(r'https://loremflickr\.com/[^\s"<>]+', content):
+        all_urls.add(m.group(0))
+
+print(f'Total unique image URLs: {len(all_urls)}')
+
+# Check for remaining issues
+issues = 0
+for url in all_urls:
+    if re.search(r'[^\x00-\x7F]', url):
+        print(f'  STILL HAS NON-ASCII: {url[:80]}')
+        issues += 1
+    if '??' in url:
+        print(f'  STILL HAS DOUBLE ?: {url[:80]}')
+        issues += 1
+    if url.count('?') > 1:
+        print(f'  STILL HAS MULTIPLE ? : {url[:80]}')
+        issues += 1
+
+print(f'Remaining issues: {issues}')
