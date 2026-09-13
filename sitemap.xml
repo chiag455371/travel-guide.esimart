@@ -169,6 +169,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/eu.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-fuji-hiking.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -415,6 +421,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/kr-autumn.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -559,6 +571,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/kr.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/oce-auckland-rangitoto.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -602,6 +620,12 @@
   </url>
   <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/oce-wellington.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/oce.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -818,6 +842,12 @@
   </url>
   <url>
     <loc>https://chiag455371.github.io/travel-guide.esimart/articles/tw-yilan.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/tw.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
