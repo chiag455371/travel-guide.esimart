@@ -380,7 +380,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-fukuoka-food.html</loc>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-fukuoka.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -409,7 +409,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-hiroshima-miatu.html</loc>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-hiroshima.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -420,7 +420,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-hiroshima-peace.html</loc>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-hiroshima.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -456,7 +456,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-kamakura-buddha.html</loc>
+    <loc>https://chiag455371.github.io/travel-guide.esimart/articles/jp-kamakura.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -1634,21 +1634,21 @@
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-awaji-union.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-awaji.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-fuji-hiking.html</loc><lastmod>2026-09-14</lastmod></url>
-<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-fukuoka-food.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-fukuoka.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-fukuoka.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hakone-onsen.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-himeji.html</loc><lastmod>2026-09-14</lastmod></url>
-<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima-itsukushima.html</loc><lastmod>2026-09-14</lastmod></url>
-<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima-miatu.html</loc><lastmod>2026-09-14</lastmod></url>
-<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima-okunoshima.html</loc><lastmod>2026-09-14</lastmod></url>
-<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima-peace.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hokkaido-onsen.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hokkaido-russian.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hokkaido-sapporo.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hokkaido-snow.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-kagoshima-aima.html</loc><lastmod>2026-09-14</lastmod></url>
-<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-kamakura-buddha.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-kamakura.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-kamakura.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-kanazawa-castle.html</loc><lastmod>2026-09-14</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/jp-kanazawa.html</loc><lastmod>2026-09-14</lastmod></url>
@@ -1871,4 +1871,21 @@
 <url><loc>https://travel-guide-esimart.pages.dev/articles/tw-masp-detailed.html</loc><lastmod>2026-09-15</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/tw-taipei-tamsui.html</loc><lastmod>2026-09-15</lastmod></url>
 <url><loc>https://travel-guide-esimart.pages.dev/articles/tw-yilan-aolitao.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/eu-zurich-lake.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-fukuoka-food.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-fukuoka-inohara.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-himeji-castle.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima-itsukushima.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima-miatu.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima-okunoshima.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-hiroshima-peace.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-kamakura-buddha.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/jp-takamatsu-rittoru.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/kr-geochang-bulguksa.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/kr-seoul-itewon.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/oce-adelaide-southern.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/oce-astrolabe.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/oce-queenstown-lake.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/oce-tasmania-hobart.html</loc><lastmod>2026-09-15</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/articles/tw-nantou-jiuan.html</loc><lastmod>2026-09-15</lastmod></url>
 </urlset>
