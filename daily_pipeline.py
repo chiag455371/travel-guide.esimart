@@ -112,6 +112,11 @@ run('python add_breadcrumbs.py')
 run('python add_popular_lists.py')
 run('python add_guide_cta.py')
 
+# 6.5 build food cluster pages (idempotent)
+if os.path.exists('build_food_cluster.py'):
+    print('--- python build_food_cluster.py')
+    run([sys.executable, 'build_food_cluster.py'])
+
 # 7. sitemap: add new article URLs
 sm = open('sitemap.xml', encoding='utf-8').read()
 lines = sm.rstrip().split('\n')
