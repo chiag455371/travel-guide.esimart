@@ -1,8 +1,33 @@
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 [build]
   command = "echo 'No build required'"
   publish = "."
+
+[[redirects]]
+  from = "/articles/jp-hiroshima-okunoshima.html"
+  to = "/articles/jp-hiroshima.html"
+  status = 301
+
+[[redirects]]
+  from = "/articles/jp-hiroshima-itsukushima.html"
+  to = "/articles/jp-hiroshima.html"
+  status = 301
+
+[[redirects]]
+  from = "/articles/jp-awaji-union.html"
+  to = "/articles/jp-awaji.html"
+  status = 301
+
+[[redirects]]
+  from = "/articles/jp-nikko-shrine.html"
+  to = "/articles/jp-nikko-tobu.html"
+  status = 301
+
+[[redirects]]
+  from = "/articles/eu-flanders-bruges.html"
+  to = "/articles/eu-bruges.html"
+  status = 301
+
+[[redirects]]
+  from = "/articles/tw-luku-geopark.html"
+  to = "/articles/tw-luceat.html"
+  status = 301
