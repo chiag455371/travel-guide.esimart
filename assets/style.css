@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap');
-:root{--bg:#FFFDF9;--bg-alt:#FFF8F3;--panel:#FFFFFF;--panel-border:#F5E6D8;--text:#1A1A1A;--text-soft:#5A5047;--text-muted:#A09080;--accent:#E06030;--accent-dark:#C04818;--accent-light:#FFF3EE;--accent-2:#1A9A6C;--accent-2-light:#E8F8F0;--gold:#D4A017;--gold-light:#FFF9E8;--sky:#3A8FE7;--sky-light:#EEF5FC;--radius:20px;--radius-sm:12px;--shadow-sm:0 1px 6px rgba(0,0,0,.06);--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.12);--shadow-card:0 2px 12px rgba(0,0,0,.06)}
+:root{--bg:#FFFEFC;--bg-alt:#FFF9F4;--panel:#FFFFFF;--panel-border:#F3EDE6;--text:#1A1A1A;--text-soft:#5B5550;--text-muted:#9A9188;--accent:#E8622C;--accent-dark:#C04818;--accent-light:#FFF3EE;--accent-2:#1A9A6C;--accent-2-light:#E8F8F0;--gold:#D4A017;--gold-light:#FFF9E8;--sky:#3A8FE7;--sky-light:#EEF5FC;--radius:20px;--radius-sm:12px;--shadow-sm:0 1px 6px rgba(0,0,0,.06);--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.12);--shadow-card:0 3px 14px rgba(0,0,0,.07)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);line-height:1.9;font-size:16px}
