@@ -1566,4 +1566,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  </url>
+<url><loc>https://travel-guide-esimart.pages.dev/guides/jp-esim-guide.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/guides/kr-esim-guide.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/guides/tw-esim-guide.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/guides/eu-esim-guide.html</loc><lastmod>2026-09-14</lastmod></url>
+<url><loc>https://travel-guide-esimart.pages.dev/guides/oce-esim-guide.html</loc><lastmod>2026-09-14</lastmod></url>
 </urlset>
