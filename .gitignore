@@ -19,3 +19,6 @@ test_images.py
 generate_region_pages.py
 daily_pipeline.py
 finalize.py
+
+# Local Netlify folder
+.netlify
