@@ -49,15 +49,36 @@ POPULAR = {
     ],
 }
 
-def get_title_and_seed(slug):
+import json, hashlib
+_IMG_CACHE = {}
+try:
+    _IMG_CACHE = json.load(open('image_cache.json', encoding='utf-8'))
+except Exception:
+    pass
+_REGION_THUMBS = {}
+for _k, _v in _IMG_CACHE.items():
+    _t = _v.get('thumb') or _v.get('url')
+    if _t:
+        _REGION_THUMBS.setdefault(_k.split('-')[0], []).append(_t)
+_ALL_THUMBS = [t for lst in _REGION_THUMBS.values() for t in lst] or ['https://upload.wikimedia.org/wikipedia/commons/4/4b/Amsterdam_-_48390199071.jpg']
+
+def thumb_for(slug, region):
+    v = _IMG_CACHE.get(slug) or _IMG_CACHE.get(slug.rsplit('-', 1)[0]) or {}
+    url = v.get('thumb') or v.get('url')
+    if url:
+        return url
+    opts = _REGION_THUMBS.get(region, _ALL_THUMBS)
+    i = int(hashlib.md5(slug.encode()).hexdigest(), 16) % len(opts)
+    return opts[i]
+
+def get_title_and_seed(slug, region):
     try:
         c = open(f'articles/{slug}.html', encoding='utf-8').read()
     except FileNotFoundError:
-        return slug, None
+        return slug, thumb_for(slug, region)
     m = re.search(r'<title>([^<]+)</title>', c)
     t = (m.group(1) if m else slug).split('｜')[0].strip()
-    og = re.search(r'og:image" content="https://picsum\.photos/seed/(\d+)/', c)
-    return t, (og.group(1) if og else None)
+    return t, thumb_for(slug, region)
 
 for region, popular in POPULAR.items():
     fname = f'articles/{region}.html'
@@ -68,12 +89,12 @@ for region, popular in POPULAR.items():
 
     items = []
     for slug, label in popular:
-        title, seed = get_title_and_seed(slug)
-        seed = seed or '100000'
+        title, seed = get_title_and_seed(slug, region)
+        
         items.append(
             f'    <li><a href="{BASE}/articles/{slug}.html" class="popular-item">'
             f'<span class="popular-label">{label}</span>'
-            f'<img class="popular-img" src="https://picsum.photos/seed/{seed}/80/80" '
+            f'<img class="popular-img" src="{seed}" '
             f'alt="{title}" loading="lazy" width="80" height="80">'
             f'<span class="popular-title">{title}</span></a></li>')
 

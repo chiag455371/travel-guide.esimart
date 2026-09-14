@@ -4,7 +4,16 @@
 - 內鏈到美食文章卡片 + 回指南頁 + 麵包屑 Schema
 - 冪等: 已存在則跳過
 """
-import os, re, glob, json
+import os, re, glob, json, hashlib
+_IMG_CACHE = {}
+try:
+    _IMG_CACHE = json.load(open('image_cache.json', encoding='utf-8'))
+except Exception:
+    pass
+_REGION_T = {}
+for _k, _v in _IMG_CACHE.items():
+    _t = _v.get('thumb') or _v.get('url')
+    if _t: _REGION_T.setdefault(_k.split('-')[0], []).append(_t), json
 
 SITE = 'https://travel-guide-esimart.pages.dev'
 REGION_NAMES = {'jp': '日本', 'kr': '韓國', 'tw': '台灣', 'eu': '歐洲', 'oce': '大洋洲'}
@@ -89,7 +98,7 @@ def build_page(region):
   <meta property="og:description" content="{desc}">
   <meta property="og:url" content="{SITE}/guides/{region}-food.html">
   <meta property="og:type" content="article">
-  <meta property="og:image" content="https://picsum.photos/seed/{abs(hash(region + 'food')) % 900000}/600/400">
+  <meta property="og:image" content="(_REGION_T.get(region, [_REGION_T.values().__next__() if _REGION_T else 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Amsterdam_-_48390199071.jpg'])[0])">
   <link rel="canonical" href="{SITE}/guides/{region}-food.html">
   <link rel="stylesheet" href="{SITE}/assets/style.css">
   <script type="application/ld+json">
