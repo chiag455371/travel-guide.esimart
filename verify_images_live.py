@@ -31,4 +31,4 @@ for s in samples:
     print(f"{ok} {s}: wikimedia_refs={wiki}, picsum_refs={picsum}")
 
 print(f"\n總計: wikimedia={total_wiki}, picsum={total_picsum}")
-print("結論: " + ("全部替換完成 ✓" if total_picsum == 0 else "仍有 picsum 殘留 ✗"))
+print("結論: " + ("全部替換完成" if total_picsum == 0 else "仍有 picsum 殘留"))
