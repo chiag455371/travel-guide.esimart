@@ -11,6 +11,8 @@ import os, sys, random, datetime, re, hashlib, json, subprocess
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 
+from extra_templates_10 import EXTRA_TEMPLATES_10
+
 BASE = r"C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo"
 ARTICLES_DIR = os.path.join(BASE, "articles")
 DIST_DIR = os.path.join(BASE, "dist")
@@ -43,7 +45,7 @@ REGIONS = {
 
 # ─── EEAT-compliant article templates pool ──────────────────────────────────
 # Each template includes: experience markers, expert details, authority signals, trust elements
-TEMPLATE_POOL = [
+TEMPLATE_POOL = EXTRA_TEMPLATES_10 + [
     # ── JAPAN ──
     {"slug":"jp-tokyo-meiji-jingu","region":"jp","title":"東京明治神宮全攻略：forest in the city・代代木公園與原宿潮流","desc":"明治神宮位於東京原宿，是東京最著名的神社之一，參道兩旁的巨大樹木形成天然綠洲。","h2s":[("明治神宮參道","長達4公里的參道種植了約12萬棵樹木，由日本各地進獻。鳥居入口處有2,000年歷史的巨型榊樹。"),("神殿與御守","本殿祭祀明治天皇與昭憲皇太后。御守種類超過30種，包括安產、学业、商業等不同祈福項目。"),("代代木公園","神宮旁的代代木公園是東京著名的賞櫻地點，春季有眾多野餐和攝影愛好者聚集。"),("交通方式","從原宿站步行5分鐘即到。或從澀谷站步行約15分鐘。"),("預算估算","門票：免費。交通：約500日圓。餐飲：約2,000-4,000日圓。")],"tags":["東京","明治神宮","原宿","參拜","神社"]},
     {"slug":"jp-osaka-namba","region":"jp","title":"大阪難波一日遊：道頓堀、心齋橋與黑門市場美食巡禮","desc":"難波是大阪最熱鬧的商業區，道頓堀的美食、心齋橋的購物、黑門市場的食材構成完整的大阪體驗。","h2s":[("道頓堀格力高看板","道頓堀河畔的格力高跑者看板是大阪最具代表性的地標，夜晚燈光亮起時成為必拍景點。"),("黑門市場","被稱為「大阪的廚房」，新鮮海鮮、和牛、水果應有盡有。推薦現場烤製的海膽和牡丹蝦。"),("心齋橋商店街","大阪最長的拱形商店街，約600公尺長。藥妝、服飾、雜貨一應俱全。"),("交通方式","JR環狀線難波站或地鐵千日前線日本橋站。"),("預算估算","交通：約500日圓。餐飲：約3,000-6,000日圓。購物：約5,000-20,000日圓。")],"tags":["大阪","難波","道頓堀","黑門市場","購物"]},
