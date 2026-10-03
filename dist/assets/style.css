@@ -1,6 +1,5 @@
-/* Modern Travel Blog v2 - Bright Travel Blogger Style */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap');
-:root{--bg:#FFFDF9;--bg-alt:#FFF8F3;--panel:#FFFFFF;--panel-border:#F5E6D8;--text:#1A1A1A;--text-soft:#5A5047;--text-muted:#A09080;--accent:#E06030;--accent-dark:#C04818;--accent-light:#FFF3EE;--accent-2:#1A9A6C;--accent-2-light:#E8F8F0;--gold:#D4A017;--gold-light:#FFF9E8;--sky:#3A8FE7;--sky-light:#EEF5FC;--radius:20px;--radius-sm:12px;--shadow-sm:0 1px 6px rgba(0,0,0,.06);--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.12);--shadow-card:0 2px 12px rgba(0,0,0,.06)}
+:root{--bg:#FFFEFC;--bg-alt:#FFF9F4;--panel:#FFFFFF;--panel-border:#F3EDE6;--text:#1A1A1A;--text-soft:#5B5550;--text-muted:#9A9188;--accent:#E8622C;--accent-dark:#C04818;--accent-light:#FFF3EE;--accent-2:#1A9A6C;--accent-2-light:#E8F8F0;--gold:#D4A017;--gold-light:#FFF9E8;--sky:#3A8FE7;--sky-light:#EEF5FC;--radius:20px;--radius-sm:12px;--shadow-sm:0 1px 6px rgba(0,0,0,.06);--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.12);--shadow-card:0 3px 14px rgba(0,0,0,.07)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);line-height:1.9;font-size:16px}
@@ -125,3 +124,83 @@ footer a{color:var(--accent-2)}
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 @media(max-width:768px){nav.topnav{padding:0 16px}nav.topnav .brand{font-size:.95rem;margin-right:12px}nav.topnav a{padding:5px 10px;font-size:.82rem}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--panel-border);padding:16px;flex-direction:column;gap:4px}.nav-links.active{display:flex}.wrap,article{padding:28px 16px}.hero{padding:64px 20px 56px}.hero h1{font-size:1.75rem}.hero-stats{gap:24px}.card-grid{grid-template-columns:1fr}table{font-size:.82rem}th,td{padding:10px 12px}.esim-cta{padding:32px 20px}.esim-cta h2{font-size:1.15rem}.esim-cta-inline{padding:18px 16px}.esim-cta-inner{flex-direction:column;text-align:center}.region-quick-nav{grid-template-columns:repeat(3,1fr);gap:10px}.region-card{padding:16px 8px}.region-card-icon{font-size:1.6rem}.region-card-name{font-size:.9rem}.region-card-count{font-size:.7rem}.article-nav{flex-direction:column}.related-grid{grid-template-columns:1fr}}
+.popular-list {
+ list-style: none;
+ padding: 0;
+ margin: 0 0 1.5rem;
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+ gap: 0.75rem;
+}
+.popular-item {
+ display: flex;
+ align-items: center;
+ gap: 0.6rem;
+ padding: 0.6rem;
+ border-radius: 10px;
+ background: var(--card-bg, #fff);
+ border: 1px solid var(--border, #e5e7eb);
+ text-decoration: none;
+ color: inherit;
+ transition: transform 0.15s, box-shadow 0.15s;
+}
+.popular-item:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.popular-img {
+ width: 80px;
+ height: 80px;
+ border-radius: 8px;
+ object-fit: cover;
+ flex-shrink: 0;
+}
+.popular-label {
+ display: block;
+ font-size: 0.7rem;
+ font-weight: 700;
+ color: var(--accent, #e63946);
+ text-transform: uppercase;
+ margin-bottom: 0.15rem;
+}
+.popular-title {
+ display: block;
+ font-size: 0.85rem;
+ font-weight: 600;
+ line-height: 1.3;
+}
+.breadcrumb-nav {
+ margin: 0.75rem 0 1.25rem;
+}
+.breadcrumb {
+ list-style: none;
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ gap: 0.4rem;
+ padding: 0;
+ margin: 0;
+ font-size: 0.85rem;
+ color: var(--muted, #6b7280);
+}
+.breadcrumb li {
+ display: flex;
+ align-items: center;
+ gap: 0.4rem;
+}
+.breadcrumb li:not(:last-child)::after {
+ content: '›';
+ color: var(--muted, #6b7280);
+ margin-left: 0.4rem;
+}
+.breadcrumb a {
+ color: var(--accent, #e63946);
+ text-decoration: none;
+}
+.breadcrumb a:hover {
+ text-decoration: underline;
+}
+.breadcrumb [aria-current="page"] {
+ color: var(--text, #1f2937);
+ font-weight: 600;
+}

@@ -1,0 +1,25 @@
+articles patched: 308 / 384
+C:\Users\User\AppData\Local\Programs\Python\Python311\python.exe: can't open file 'C:\\Users\\User\\Documents\\ChatGPT\\1̖�ˆT\\travel-guide-repo\\generate_region_pages.py': [Errno 2] No such file or directory
+
+==================================================
+Daily Article Generator - 2026-10-03
+==================================================
+
+Existing articles: 384
+Available new templates: 1
+Generating 1 new articles...
+
+  SKIP (exists): jp-kobe-night
+
+Generated 0 new articles today.
+Total articles: 384
+
+New articles today: 0 -> []
+new articles patched (related + breadcrumb)
+
+--- ['C:\\Users\\User\\AppData\\Local\\hermes\\hermes-agent\\venv\\Scripts\\python.exe', 'apply_pix_articles.py']
+
+
+--- python generate_region_pages.py
+
+ERROR: python generate_region_pages.py exited 2
