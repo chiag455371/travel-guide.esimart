@@ -18,6 +18,7 @@ from extra_templates_7 import EXTRA_TEMPLATES_7
 from extra_templates_6 import EXTRA_TEMPLATES_6
 from extra_templates_5 import EXTRA_TEMPLATES_5
 from extra_templates_11 import EXTRA_TEMPLATES_11
+import extra_templates_dynamic
 
 BASE = r"C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo"
 ARTICLES_DIR = os.path.join(BASE, "articles")
@@ -228,8 +229,13 @@ def main():
     existing = get_existing_slugs()
     print(f"Existing articles: {len(existing)}")
 
+    # Synthesize fresh dynamic templates (dest x angles) for any unwritten slugs
+    dynamic = extra_templates_dynamic.DYNAMIC_TEMPLATES(existing)
+    print(f"Dynamic fresh templates: {len(dynamic)}")
+    all_templates = list(TEMPLATE_POOL) + dynamic
+
     # Filter available templates
-    available = [t for t in TEMPLATE_POOL if t['slug'] not in existing]
+    available = [t for t in all_templates if t['slug'] not in existing]
     print(f"Available new templates: {len(available)}")
 
     if not available:
