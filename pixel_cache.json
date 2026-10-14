@@ -10237,5 +10237,57 @@
   "width": 4858,
   "query": "Europe old town",
   "license": "Pixabay Content License"
+ },
+ "eu-annecy-budget": {
+  "url": "https://pixabay.com/get/g52672bbd387b3b6d452dd808fc5811af7426ee334654e9e3644fd23e7344f8d13115a22742d8e3fad41e617ba21ae88fa9eadcee4e2764d904d8ad146ec90f5b_1280.jpg",
+  "pid": 3193674,
+  "width": 6000,
+  "query": "Europe old town",
+  "license": "Pixabay Content License"
+ },
+ "eu-annecy-budget__card1": {
+  "url": "https://pixabay.com/get/gce3d9ad714425453ec0c37fa5b92c4800a4dbc3b1e17ce979d21e432d05a0dfaf2e1c47bb7dec22efd1c7c4a124f9a93437ecbdbdb42b82d7c0b8cb8e6124f3b_1280.jpg",
+  "pid": 2547256,
+  "width": 1579,
+  "query": "Europe old town"
+ },
+ "eu-annecy-budget__card2": {
+  "url": "https://pixabay.com/get/g770c1a05a3c7c631d697cd7e3d6bf3d1489200769e7ebea9ba61ec9a5070c4c9376bada04fe3391594cf188d09cdf6c93e8cd54d0f319dce1a6ab80fe65ada5b_1280.jpg",
+  "pid": 6874893,
+  "width": 4500,
+  "query": "Europe old town"
+ },
+ "eu-annecy-budget__card3": {
+  "url": "https://pixabay.com/get/g9873c29de67aa2a0097615b8463b5676cca634d2fae6812e1fc68cc4360aa46777c756c012db9f5d8979c760569beffec63469054409228ddfab6aa52f538c23_1280.jpg",
+  "pid": 7525969,
+  "width": 5704,
+  "query": "Europe old town"
+ },
+ "oce-canberra-national": {
+  "url": "https://pixabay.com/get/g39b10525e7c683dd86674cee2f76e69a98ee9cbb48115ea022cf777ac28b494441697b9ad3f24de464dc94652f26a2a609aa37721e0f0fe5661d06eb0157b518_1280.jpg",
+  "pid": 140304,
+  "width": 3600,
+  "query": "Australia town",
+  "license": "Pixabay Content License"
+ },
+ "tw-taitung-lanyu": {
+  "url": "https://pixabay.com/get/g42ff039e668a92c800ffbcf5ac6e8baca1eb17fdcadbea4d28af12f4e6041c247a3741bbaf55553b5af404413145e2263aa77bc0eca0733c11e6c0582ef63e43_1280.jpg",
+  "pid": 6871750,
+  "width": 7391,
+  "query": "Taiwan town",
+  "license": "Pixabay Content License"
+ },
+ "tw-taitung-lanyu__card1": {
+  "url": "https://pixabay.com/get/gd4f75d63f7205f93fdf4aea6d69713f90bb16d5399a0aff50a78fe7e049a6d5e08a2e6dbe9043d15be511ba56b6add877e4f3a50ac0b40026d41967e3bbb48a6_1280.jpg",
+  "pid": 5471544,
+  "width": 4000,
+  "query": "Taiwan town"
+ },
+ "jp-kobe-umoten": {
+  "url": "https://pixabay.com/get/gf1b28cb47f085f61fd28a13c0c7ba1a211092ad2365f730f079769650f7377a4cb108013ade0f77f807982377724d403facb5cf8285b276d15578c0dc7160803_1280.jpg",
+  "pid": 1792369,
+  "width": 4749,
+  "query": "Japan mountain",
+  "license": "Pixabay Content License"
  }
 }
