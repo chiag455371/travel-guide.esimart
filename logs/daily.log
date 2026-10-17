@@ -1,0 +1,55 @@
+
+==================================================
+Daily Article Generator - 2026-10-17
+==================================================
+
+Existing articles: 522
+Dynamic fresh templates: 12
+Available new templates: 13
+Generating 10 new articles...
+
+  GENERATED: tw-sanyan-photo
+  GENERATED: tw-taitung-family
+  GENERATED: kr-jeju-baengnoksan-food
+  GENERATED: jp-fukui-ekigawa-onsen
+  GENERATED: jp-hakone-yun-food
+  GENERATED: jp-nagano-day-trip
+  GENERATED: kr-jeju-seongsan-day-trip
+  SKIP (exists): jp-kobe-night
+  GENERATED: eu-lake-lugano-day-trip
+  GENERATED: jp-matsumoto-onsen
+
+Generated 9 new articles today.
+Total articles: 540
+
+New articles today: 9 -> ['eu-lake-lugano-day-trip', 'jp-fukui-ekigawa-onsen', 'jp-hakone-yun-food', 'jp-matsumoto-onsen', 'jp-nagano-day-trip', 'kr-jeju-baengnoksan-food', 'kr-jeju-seongsan-day-trip', 'tw-sanyan-photo', 'tw-taitung-family']
+new articles patched (related + breadcrumb)
+--- Running Pixabay fill for 9 new articles
+
+--- ['C:\\Users\\User\\AppData\\Local\\hermes\\hermes-agent\\venv\\Scripts\\pythonw.exe', 'fetch_pixabay_fill.py']
+
+
+--- ['C:\\Users\\User\\AppData\\Local\\hermes\\hermes-agent\\venv\\Scripts\\pythonw.exe', 'apply_pix_articles.py']
+
+
+--- python generate_region_pages.py
+
+
+--- python add_breadcrumbs.py
+
+
+--- python add_popular_lists.py
+
+
+--- python add_guide_cta.py
+
+--- python build_food_cluster.py
+
+--- ['C:\\Users\\User\\AppData\\Local\\hermes\\hermes-agent\\venv\\Scripts\\pythonw.exe', 'build_food_cluster.py']
+
+sitemap: added 9 new URLs
+
+--- npx wrangler pages deploy . --project-name=travel-guide-esimart
+
+
+=== Pipeline complete ===
