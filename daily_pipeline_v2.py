@@ -33,15 +33,23 @@ if os.path.exists(dist):
 os.makedirs(f'{dist}/articles', exist_ok=True)
 os.makedirs(f'{dist}/assets', exist_ok=True)
 
-for f in ['index.html', 'sitemap.xml', 'robots.txt', '.nojekyll']:
+for f in ['index.html', 'sitemap.xml', 'robots.txt', '.nojekyll',
+          'jp.html', 'kr.html', 'tw.html', 'eu.html', 'oce.html']:
     if os.path.exists(f):
         shutil.copy2(f, f'{dist}/{f}')
-shutil.copytree('articles', f'{dist}/articles', dirs_exist_ok=True)
-shutil.copytree('assets', f'{dist}/assets', dirs_exist_ok=True)
+for d in ['articles', 'assets', 'guides', 'jp']:
+    if os.path.isdir(d):
+        shutil.copytree(d, f'{dist}/{d}', dirs_exist_ok=True)
 
 env = os.environ.copy()
-# CF token 用環境變數（排程任務設好）；若沒有則用 wrangler.toml 內建的 token
-env.setdefault('CLOUDFLARE_API_TOKEN', 'ENV_CF_TOKEN')
+# CF token：優先環境變數，其次讀本機 token 檔（不可寫死在程式或排程參數裡）
+if not env.get('CLOUDFLARE_API_TOKEN'):
+    for _tp in (os.path.join(_REPO_DIR, '.cf-token'),
+                r'C:\Users\User\Documents\網站製作\.cf-token'):
+        if os.path.exists(_tp):
+            with open(_tp, encoding='utf-8') as _fh:
+                env['CLOUDFLARE_API_TOKEN'] = _fh.read().strip()
+            break
 npx_path = _abs('npx')
 # 用 utf-8 + errors=replace 避免 Windows 預設 GBK 解碼中文字報 UnicodeDecodeError
 result = subprocess.run(
@@ -50,7 +58,8 @@ result = subprocess.run(
 )
 out = result.stdout or ''
 print(out[-500:] if len(out) > 500 else out)
-if result.returncode != 0:
+deploy_ok = result.returncode == 0
+if not deploy_ok:
     err = result.stderr or ''
     print(f"Deploy failed: {err[:200]}")
 else:
@@ -63,4 +72,8 @@ subprocess.run([git_path, 'commit', '-m', f'daily: {gen.TODAY} - articles genera
 subprocess.run([git_path, 'push', 'origin', 'main'], check=False, capture_output=True)
 
 print("\nDone!")
+
+# 部署失敗要讓排程看到非 0，否則會一直誤判為成功
+if not deploy_ok:
+    sys.exit(1)
 
