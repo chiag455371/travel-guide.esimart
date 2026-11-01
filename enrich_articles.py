@@ -5,7 +5,7 @@ import os, re, random, datetime
 REPO = r'C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo'
 ARTICLES_DIR = os.path.join(REPO, 'articles')
 DISTRIBUTOR = 'https://travel-guide.esimart.cc/goods'
-BASE = 'https://chiag455371.github.io/travel-guide.esimart'
+BASE = 'https://travel-guide-esimart.pages.dev'
 TODAY = datetime.date.today().isoformat()
 
 # Rich content templates per region/slug

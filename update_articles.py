@@ -3,7 +3,7 @@
 import os, random, datetime
 
 ARTICLES_DIR = r'C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo\articles'
-BASE = 'https://chiag455371.github.io/travel-guide.esimart'
+BASE = 'https://travel-guide-esimart.pages.dev'
 DISTRIBUTOR = 'https://travel-guide.esimart.cc/goods'
 TODAY = datetime.date.today().isoformat()
 ESIM_LINKS = {'jp': DISTRIBUTOR+'/122', 'kr': DISTRIBUTOR+'/3', 'tw': DISTRIBUTOR+'/11', 'eu': DISTRIBUTOR+'/14', 'oce': DISTRIBUTOR+'/7'}

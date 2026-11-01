@@ -3,4 +3,11 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 
-Sitemap: https://chiag455371.github.io/travel-guide.esimart/sitemap.xml
+User-agent: GPTBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://travel-guide-esimart.pages.dev/sitemap.xml

@@ -10,7 +10,7 @@ from urllib.error import URLError, HTTPError
 BASE = r"C:\Users\User\Documents\ChatGPT\1號人員\travel-guide-repo"
 ARTICLES_DIR = os.path.join(BASE, "articles")
 DISTRIBUTOR = "https://travel-guide.esimart.cc/goods"
-SITE_BASE = "https://chiag455371.github.io/travel-guide.esimart"
+SITE_BASE = "https://travel-guide-esimart.pages.dev"
 TODAY = datetime.date.today().isoformat()
 
 # Image keywords per region

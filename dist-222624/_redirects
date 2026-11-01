@@ -1,0 +1,37 @@
+# Cloudflare Pages 轉址規則
+# 目標一律寫「無副檔名」網址，否則會變成 301 -> 308 的雙重轉址。
+# 2026-10-31 由營運接管後重建。
+
+# --- 根目錄空殼地區頁（10KB、內容重複 articles/{region}）導到正版頁 ---
+/jp /articles/jp 301
+/kr /articles/kr 301
+/tw /articles/tw 301
+/eu /articles/eu 301
+/oce /articles/oce 301
+
+# --- 同景點重複頁合併 ---
+/articles/jp-nara-deer /articles/jp-nara-deer-park 301
+/articles/jp-osaka-doton /articles/jp-osaka-dotonbori 301
+/articles/jp-nagoyaCastle /articles/jp-nagoya-castle 301
+/articles/jp-himeji /articles/jp-himeji-castle 301
+/articles/jp-miyajima-torii /articles/jp-miyajima-shrine 301
+
+# --- 早期重複文章合併（原本就有，改成無副檔名目標）---
+/articles/jp-hiroshima-okunoshima /articles/jp-hiroshima 301
+/articles/jp-hiroshima-itsukushima /articles/jp-hiroshima 301
+/articles/jp-awaji-union /articles/jp-awaji 301
+/articles/jp-nikko-shrine /articles/jp-nikko-tobu 301
+/articles/eu-flanders-bruges /articles/eu-bruges 301
+/articles/tw-luku-geopark /articles/tw-luceat 301
+/articles/kr-bucheon /articles/kr-bukchon 301
+/articles/eu-berlin /articles/eu-berlin-wall 301
+/articles/tw-pingtung-ranch /articles/tw-pingtung-orchid 301
+/articles/kr-jeju /articles/kr-jeju-city 301
+/articles/kr-jeju-cafe /articles/kr-jeju-city 301
+/articles/kr-jeju-jungmun /articles/kr-jeju-city 301
+/articles/tw-nantou-lalu /articles/tw-nantou-clear 301
+/articles/tw-shilin-old /articles/tw-shilin-night 301
+/articles/tw-kaohsiung-food /articles/tw-kaohsiung-night 301
+/articles/eu-amsterdam /articles/eu-amsterdam-canal 301
+/articles/eu-venice-gondola /articles/eu-venice-canals 301
+/articles/oce-wellington /articles/oce-wellington-museum 301

@@ -1,43 +1,56 @@
 #!/usr/bin/env python3
-"""Build articles/index.html and sitemap.xml from all article files."""
-import os, re, html
+# -*- coding: utf-8 -*-
+"""重建 articles/index.html — 全量收錄「核心頁」，消滅孤兒頁。
+
+修正紀錄（2026-10-31）：
+1. 卡片 URL 一律不帶 .html（Pages 會把 /x.html 308 轉到 /x，
+   帶 .html 的內鏈等於把 534 個轉址種回索引頁）。
+2. 只列核心頁（tier_content.py 的 core），noindex 變體頁不列，
+   避免把低差異頁面推給 Google。
+3. CSS 路徑修正為 /assets/style.css（原本寫死舊子目錄，樣式會 404）。
+4. sitemap 交給 update_sitemap.py 產生，本檔不再寫 sitemap。
+"""
+import os
+import re
+import html
+
+from tier_content import build_plan
 
 ARTICLES_DIR = 'articles'
-BASE = 'https://chiag455371.github.io/travel-guide.esimart'
+BASE = 'https://travel-guide-esimart.pages.dev'
 DISTRIBUTOR = 'https://travel-guide.esimart.cc/goods'
 
-exclude = {'index.html', 'jp.html', 'kr.html', 'tw.html', 'eu.html', 'oce.html'}
-files = sorted([f for f in os.listdir(ARTICLES_DIR) if f.endswith('.html') and f not in exclude])
+EXCLUDE = {'index.html', 'jp.html', 'kr.html', 'tw.html', 'eu.html', 'oce.html'}
 
-articles = []
-for f in files:
-    path = os.path.join(ARTICLES_DIR, f)
+FLAG = {'jp': '🇯🇵', 'kr': '🇰🇷', 'tw': '🇹🇼', 'eu': '🇪🇺', 'oce': '🇦🇺', 'esim': '📡'}
+REGION_NAME = {'jp': '日本', 'kr': '韓國', 'tw': '台灣', 'eu': '歐洲', 'oce': '澳洲', 'esim': 'eSIM 全球上網'}
+
+
+def region_of(slug):
+    for r in ('jp', 'kr', 'tw', 'eu', 'oce', 'esim'):
+        if slug.startswith(r + '-'):
+            return r
+    return 'other'
+
+
+def read_article(slug):
+    path = os.path.join(ARTICLES_DIR, slug + '.html')
     content = open(path, encoding='utf-8').read()
     m = re.search(r'<title>(.*?)</title>', content)
-    title_raw = m.group(1).strip() if m else f.replace('.html', '')
-    title = re.sub(r'\s*[｜-]\s*旅遊通.*$', '', title_raw).strip()
+    title_raw = m.group(1).strip() if m else slug
+    title = re.sub(r'\s*[｜|]\s*.*$', '', title_raw).strip() or title_raw
     m2 = re.search(r'<meta name="description" content="(.*?)">', content)
-    desc = (m2.group(1)[:120] + '...') if m2 else (title[:40] + '...')
-    m3 = re.search(r'<img[^>]+src="(https://loremflickr[^"]+)"', content)
+    desc = m2.group(1) if m2 else title
+    m3 = re.search(r'<img[^>]+src="(https://[^"]+)"', content)
     img = m3.group(1) if m3 else ''
-    slug = f.replace('.html', '')
-    region = 'jp' if slug.startswith('jp-') else 'kr' if slug.startswith('kr-') else 'tw' if slug.startswith('tw-') else 'eu' if slug.startswith('eu-') else 'oce' if slug.startswith('oce-') else 'other'
-    articles.append({'slug': slug, 'title': title, 'desc': desc, 'img': img, 'region': region})
+    return {'slug': slug, 'title': title, 'desc': desc, 'img': img, 'region': region_of(slug)}
 
-regions = {'jp':[], 'kr':[], 'tw':[], 'eu':[], 'oce':[]}
-for a in articles:
-    if a['region'] in regions:
-        regions[a['region']].append(a)
 
-FLAG = {'jp':'🇯🇵','kr':'🇰🇷','tw':'🇹🇼','eu':'🇪🇺','oce':'🇦🇺'}
-REGION_NAME = {'jp':'日本','kr':'韓國','tw':'台灣','eu':'歐洲','oce':'澳洲'}
-
-# Build article cards HTML
 def card_html(a):
     t = html.escape(a['title'])
-    d = html.escape(a['desc'][:100] + '...')
-    img = a['img'] if a['img'] else f'https://loremflickr.com/600/400/{a["region"]},travel?lock=9999&w=1200&h=600&fit=crop'
-    url = f'{BASE}/articles/{a["slug"]}.html'
+    d = html.escape(a['desc'][:100] + ('...' if len(a['desc']) > 100 else ''))
+    img = a['img'] or f'https://loremflickr.com/600/400/{a["region"]},travel?lock=9999'
+    url = f'{BASE}/articles/{a["slug"]}'
     return f'''      <a href="{url}" class="article-card">
         <div class="card-img-wrapper"><img class="card-img" src="{img}" alt="{t}" loading="lazy"></div>
         <div class="card-body">
@@ -47,18 +60,27 @@ def card_html(a):
         </div>
       </a>'''
 
-# Build region sections
-region_sections = ''
-for r in ['jp', 'kr', 'tw', 'eu', 'oce']:
-    items = regions.get(r, [])
-    if not items:
-        continue
-    cards = '\n'.join(card_html(a) for a in items)
-    region_sections += f'''  <div class="region-section">
+
+def main():
+    plan = build_plan()
+    core = plan['core']
+    articles = [read_article(s) for s in core]
+    articles = [a for a in articles if a['region'] != 'other']
+
+    regions = {r: [] for r in FLAG.keys()}
+    for a in articles:
+        regions[a['region']].append(a)
+
+    region_sections = ''
+    for r in ('jp', 'kr', 'tw', 'eu', 'oce'):
+        items = regions[r]
+        if items:
+            cards = '\n'.join(card_html(a) for a in items)
+            region_sections += f'''  <div class="region-section">
     <div class="region-header">
       <div class="region-icon">{FLAG[r]}</div>
       <h2>{REGION_NAME[r]}旅遊攻略</h2>
-      <a href="{BASE}/articles/{r}.html">查看全部 {len(items)} 篇 &#8594;</a>
+      <a href="{BASE}/articles/{r}">查看全部 {len(items)} 篇 &#8594;</a>
     </div>
     <div class="card-grid">
 {cards}
@@ -66,25 +88,53 @@ for r in ['jp', 'kr', 'tw', 'eu', 'oce']:
   </div>
 '''
 
-# Top filter chips
-chips = ''
-for r in ['jp', 'kr', 'tw', 'eu', 'oce']:
-    count = len(regions.get(r, []))
-    chips += f'    <a href="{BASE}/articles/{r}.html" style="padding:14px 20px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius-sm);font-weight:600;text-align:center;min-width:120px">{FLAG[r]} {REGION_NAME[r]} ({count}篇)</a>\n'
+    # eSIM 区块（放在最后，靠近 CTA）
+    esim_items = regions.get('esim', [])
+    if esim_items:
+        esim_cards = '\n'.join(card_html(a) for a in esim_items)
+        region_sections += f'''  <div class="region-section">
+    <div class="region-header">
+      <div class="region-icon">{FLAG['esim']}</div>
+      <h2>📡 eSIM 上網攻略</h2>
+      <a href="{DISTRIBUTOR}">查看所有 eSIM 方案 &#8594;</a>
+    </div>
+    <div class="card-grid">
+{esim_cards}
+    </div>
+  </div>
+'''
 
-html_content = f'''<!doctype html>
+    chips = ''
+    for r in ('jp', 'kr', 'tw', 'eu', 'oce'):
+        count = len(regions.get(r, []))
+        if count > 0:
+            chips += (
+                f'    <a href="{BASE}/articles/{r}" style="padding:14px 20px;background:var(--panel);'
+                f'border:1px solid var(--panel-border);border-radius:var(--radius-sm);font-weight:600;'
+                f'text-align:center;min-width:120px">{FLAG[r]} {REGION_NAME[r]} ({count}篇)</a>\n'
+            )
+    # eSIM chip
+    if esim_items:
+        chips += (
+            f'    <a href="{DISTRIBUTOR}" target="_blank" style="padding:14px 20px;background:#0070f8;'
+            f'color:#fff;border:1px solid #0070f8;border-radius:var(--radius-sm);font-weight:600;'
+            f'text-align:center;min-width:120px">{FLAG["esim"]} eSIM 方案 ({len(esim_items)}篇分析)</a>\n'
+        )
+
+    html_content = f'''<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <link rel="stylesheet" href="/travel-guide.esimart/assets/style.css">
+  <link rel="stylesheet" href="/assets/style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>旅遊攻略｜旅遊通 eSIM</title>
-  <meta name="description" content="旅遊通提供日本、韓國、歐洲、台灣、澳洲等地區的完整旅遊攻略，包含景點介紹、美食推薦和 eSIM 方案建議。共 {len(articles)} 篇深度攻略。">
+  <title>旅遊攻略總覽｜日本韓國歐洲台灣澳洲 eSIM｜旅遊通</title>
+  <meta name="description" content="旅遊通整理日本、韓國、歐洲、台灣、澳洲 {len(regions.get('jp',[]))} 篇日本攻略、{len(regions.get('kr',[]))} 篇韓國攻略、{len(regions.get('tw',[]))} 篇台灣攻略，以及 {len(esim_items)} 篇 eSIM 全球上網方案比較。">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="{BASE}/articles/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
-  <meta property="og:title" content="旅遊攻略｜旅遊通 eSIM">
-  <meta property="og:description" content="共 {len(articles)} 篇深度旅遊攻略，涵蓋日本、韓國、歐洲、台灣、澳洲。">
+  <meta property="og:title" content="旅遊攻略總覽｜旅遊通 eSIM">
+  <meta property="og:description" content="共 {len(articles)} 篇旅遊攻略，涵蓋日本、韓國、歐洲、台灣、澳洲。">
   <meta property="og:url" content="{BASE}/articles/">
 </head>
 <body>
@@ -94,20 +144,19 @@ html_content = f'''<!doctype html>
   <div class="nav-links">
     <a href="{BASE}/">首頁</a>
     <a href="{BASE}/articles/">全部攻略</a>
-    <a href="{BASE}/articles/jp.html">&#127471;&#127476; 日本</a>
-    <a href="{BASE}/articles/kr.html">&#127450;&#127462; 韓國</a>
-    <a href="{BASE}/articles/tw.html">&#127488;&#127463; 台灣</a>
-    <a href="{BASE}/articles/eu.html">&#127466;&#127480; 歐洲</a>
-    <a href="{BASE}/articles/oce.html">&#127462;&#127480; 澳洲</a>
+    <a href="{BASE}/articles/jp">&#127471;&#127476; 日本</a>
+    <a href="{BASE}/articles/kr">&#127450;&#127462; 韓國</a>
+    <a href="{BASE}/articles/tw">&#127488;&#127463; 台灣</a>
+    <a href="{BASE}/articles/eu">&#127466;&#127480; 歐洲</a>
+    <a href="{BASE}/articles/oce">&#127462;&#127480; 澳洲</a>
     <a class="btn-nav" href="{DISTRIBUTOR}" target="_blank" rel="noopener">&#128722; eSIM 方案</a>
   </div>
 </nav>
 <div class="wrap">
-  <h1 style="font-size:1.8rem;font-weight:900;margin-bottom:8px">&#128214; 旅遊攻略</h1>
-  <p style="color:var(--text-soft);margin-bottom:12px;font-size:1.05rem">以下文章由旅遊通編輯團隊撰寫，每篇都包含完整行程安排、預算估算和 eSIM 方案建議。</p>
+  <h1 style="font-size:1.8rem;font-weight:900;margin-bottom:8px">&#128214; 旅遊攻略總覽</h1>
+  <p style="color:var(--text-soft);margin-bottom:12px;font-size:1.05rem">以下 {len(articles)} 篇由旅遊通編輯團隊整理，每篇包含景點重點、交通方式、預算估算與 eSIM 上網建議。</p>
   <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px">
-{chips}
-  </div>
+{chips}  </div>
   <hr class="divider">
 {region_sections.rstrip()}
   <hr class="divider">
@@ -125,29 +174,14 @@ html_content = f'''<!doctype html>
 </html>
 '''
 
-with open(os.path.join(ARTICLES_DIR, 'index.html'), 'w', encoding='utf-8') as f:
-    f.write(html_content)
+    out = os.path.join(ARTICLES_DIR, 'index.html')
+    with open(out, 'w', encoding='utf-8') as f:
+        f.write(html_content)
 
-print(f'articles/index.html written: {len(articles)} articles')
-for r in ['jp','kr','tw','eu','oce']:
-    print(f'  {r}: {len(regions.get(r,[]))} articles')
+    print(f'articles/index.html written: {len(articles)} 篇（核心頁）')
+    for r in ('jp', 'kr', 'tw', 'eu', 'oce', 'esim'):
+        print(f'  {r}: {len(regions.get(r, []))} 篇')
 
-# Also update sitemap.xml
-sitemap_urls = [
-    f'  <url>\n    <loc>{BASE}/</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>',
-    f'  <url>\n    <loc>{BASE}/articles/</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>',
-]
-for r in ['jp','kr','tw','eu','oce']:
-    sitemap_urls.append(f'  <url>\n    <loc>{BASE}/articles/{r}.html</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>')
-for a in articles:
-    sitemap_urls.append(f'  <url>\n    <loc>{BASE}/articles/{a["slug"]}.html</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>')
 
-sitemap = f'''<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{chr(10).join(sitemap_urls)}
-</urlset>
-'''
-with open('sitemap.xml', 'w', encoding='utf-8') as f:
-    f.write(sitemap)
-
-print(f'sitemap.xml written: {len(sitemap_urls)} URLs')
+if __name__ == '__main__':
+    main()

@@ -21,12 +21,17 @@ import daily_generator_v3 as gen
 # Generate articles
 gen.main()
 
+# 網址正規化：canonical / 內部連結一律無副檔名（Pages 會把 .html 308 轉址）
+print("\n[2/4] Normalizing URLs...")
+import normalize_urls
+normalize_urls.main()
+
 # Update sitemap
-print("\n[2/3] Updating sitemap...")
+print("\n[3/4] Updating sitemap...")
 exec(open('update_sitemap.py', encoding='utf-8').read())
 
 # Build and deploy
-print("\n[3/3] Building and deploying...")
+print("\n[4/4] Building and deploying...")
 dist = 'dist'
 if os.path.exists(dist):
     shutil.rmtree(dist)
